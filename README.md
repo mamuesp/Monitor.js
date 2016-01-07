@@ -10,11 +10,11 @@ This script is under the MIT License. See LICENSE file
 ##... more background ...
 The visualizer of the Arduino IDE is smomewhat rudimentary and slow - and also only to be handled withs some hack, if you want to use the "Serial Plotter" as visualization of data - without always scroling to the left when entering new data.
 
-So I wrote a _Node-Module_ called monitor.js, which looks for serial data coming in over the specified USB-port and format this data as plain text and provides it as a little web server with the possibility to visualize the data in individual charts in the browser. Like in this screenshot:
+So I wrote a **Node-Module** called **monitor.js**, which looks for serial data coming in over the specified USB-port and format this data as plain text and provides it as a little web server with the possibility to visualize the data in individual charts in the browser. Like in this screenshot:
 
 ![alt tag](images/Screenshot.png)
 
-The node.js module provides all needed files to visualize the data in the browser, so after installing the module, you only need the browser of your choice an the you may collect the data from your embedded system and visualize it.
+The node.js module provides all needed files to visualize the data in the browser, so after installing the module, you only need the browser of your choice an the you may collect the data from your embedded system and visualize it. I used it to compare the frequency response of several filters on the Teensy 3.2 board.
 
 ##What you need:
 * All you find here in the package ([Chart.js](https://github.com/nnnick/Chart.js) is included)
@@ -22,29 +22,29 @@ The node.js module provides all needed files to visualize the data in the browse
 * and, of course, an USB port which feeds your monitor with data
 
 ##Ok, let's begin
-After cloning the branch you change into the branch's directory and type *npm install*. So all needed packages will be installed by the package manager from node.js.
+After cloning the branch into a directory of your choice, you change into the branch's directory and type **npm install**. Now all needed packages will be installed by the package manager from node.js.
 
 Then you start the monitor web server like this:
 
       sudo node monitor.js <usb device name> <baudrate> <port> [-v]
       
-      * unfortunately, on Mac OS X the tool must run as root, if not, no reading of the USB port is possible (looking for a solution) 
+      * unfortunately, on Mac OS X the tool must run as root, if not, no reading of the USB port is possible
+      (I'm looking for a solution) 
       * <usb device name> - the name of the USB port, where the Arduino or Teensy board is attached.
       * <baudrate> - the rate you set for the serial monitor
       * <port> - Port of the web server, on which you may receive the visualization
       * optinal -v - Verbose mode, the tool will log a lot on <stdout>
       
-Now you may open your browser with the address http://localhost:<port>/index.html. If all parmeters where right and your embedded system is protocolling over the serial port, you should see something resembling to the screenshot above.
+Now you may open your browser with the address *http://localhost:<port>/index.html*. If all parmeters were right and your embedded system is protocolling over the serial port, you should see something resembling to the screenshot above after a while.
 
 ##ToDo: 
 * allow to change the visualization settings
-* expand the "monitoring" protocol for remalrs, titles etc.
-* generalize the data parser, scan how many datasets are used and adapt the settings
+* expand the "monitoring" protocol for remarks, titles etc.
+* generalize the data parser, scan how many datasets are used and adapt the settings accordingly
 * ...
 
 ##The "protocol":
-
-your embedded system should be sending the data via *"Serial.prinln()"* to the USB port, resembling the way you feed the Serial Plotter.
+Your embedded system should be sending the data via **"Serial.prinln()"** to the USB port, resembling the way you feed the Serial Plotter.
 
 ```
 GRAPH-START
@@ -75,6 +75,6 @@ GRAPH-START
 GRAPH-END
 1452174855
 ```
-The data transmission starts with *"GRAPH-START"* and ends with *"GRAPH-END"*, followed by a line wiht the UNIX timestap of the moment, the data was received by the monitor. In between, you find the data as 4-values-comma-separated packets, because this version looks staticakky for four values per line. And the system needs (!) 500 lines of values between start and end, this is statically fixed for the moment, but will be changed in the future.
+The data transmission starts with **"GRAPH-START"** and ends with **"GRAPH-END"**, followed by a line with the UNIX-timestamp of the moment, the data was received by the monitor. In between, you find the data as 4-value-comma-separated packets, because this version looks statically for four values per line. And the system needs (!) 500 lines of values between start and end, this is statically fixed in this version, but will be changed in the future.
 
 
