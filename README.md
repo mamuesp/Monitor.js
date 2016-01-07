@@ -19,7 +19,8 @@ After cloning the branch you change into the branch's directory and type *npm in
 
 Then you start the monitor web server like this:
 
-      sudo node monitor.js <usb device name> <baudrate> <port> [-v] 
+      sudo node monitor.js <usb device name> <baudrate> <port> [-v]
+      
       * unfortunately, on Mac OS X the tool must run as root, if not, no reading of the USB port is possible (looking for a solution) 
       * <usb device name> - the name of the USB port, where the Arduino or Teensy board is attached.
       * <baudrate> - the rate you set for the serial monitor
@@ -34,11 +35,11 @@ Now you may open your browser with the address http://localhost:<port>/index.htm
 * generalize the data parser, scan how many datasets are used and adapt the settings
 * ...
 
-The "protocol":
+##The "protocol":
 
-your embedded system should be send the data vie "Serial.prinln()" to the USB port, resembling the way you feed the Serial Plotter.
+your embedded system should be sending the data via *"Serial.prinln()"* to the USB port, resembling the way you feed the Serial Plotter.
 
-
+```
 GRAPH-START
 637,999,1000,206
 625,999,993,135
@@ -52,6 +53,7 @@ GRAPH-START
 604,999,1000,211
 584,999,984,188
 600,999,987,90
+...
 544,999,954,100
 569,999,901,82
 555,999,903,9
@@ -65,7 +67,7 @@ GRAPH-START
 278,999,937,50
 GRAPH-END
 1452174855
-
-The data transmission starts with "GRAPH-START" and ends with "GRAPH-END", followed by a line wiht the UNIX timestap of the moment, the data was received by the monitor. In between, you find the data as 4-values-comma-separated data, because this version looks for four values. And the system expects 500 lines of values between start and end, this is static fixed for the moment, but will be changed in the future.
+```
+The data transmission starts with *"GRAPH-START"* and ends with *"GRAPH-END"*, followed by a line wiht the UNIX timestap of the moment, the data was received by the monitor. In between, you find the data as 4-values-comma-separated packets, because this version looks staticakky for four values per line. And the system needs (!) 500 lines of values between start and end, this is statically fixed for the moment, but will be changed in the future.
 
 
