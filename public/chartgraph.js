@@ -1,4 +1,4 @@
-/*
+/**
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 Manfred Mueller-Spaeth, fms1961@gmail.com
@@ -19,7 +19,7 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  * 
- * /
+ */
 
 var monitor = (function () {
 	
