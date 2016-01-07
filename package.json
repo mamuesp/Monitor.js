@@ -1,0 +1,21 @@
+{
+  "name": "monitor",
+  "version": "0.1.0",
+  "description": "Translates serial data from Teensy to a graph.",
+  "main": "monitor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "monitor",
+    "graph",
+    "teensy",
+    "plot"
+  ],
+  "author": "Manfred Mueller-Spaeth",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "serialport": "^2.0.5"
+  }
+}
