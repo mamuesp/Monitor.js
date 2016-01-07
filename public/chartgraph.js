@@ -73,19 +73,19 @@ var monitor = (function () {
 			Chart.defaults.global.responsive = true;
 			var options = {
 			    ///Boolean - Whether grid lines are shown across the chart
-			    scaleShowGridLines : true,
+			    scaleShowGridLines : false,
 			    //String - Colour of the grid lines
 			    scaleGridLineColor : "rgba(0,0,0,.05)",
 			    //Number - Width of the grid lines
 			    scaleGridLineWidth : 1,
 			    //Boolean - Whether to show horizontal lines (except X axis)
-			    scaleShowHorizontalLines: true,
+			    scaleShowHorizontalLines: false,
 			    //Boolean - Whether to show vertical lines (except Y axis)
-			    scaleShowVerticalLines: true,
+			    scaleShowVerticalLines: false,
 			    //Boolean - Whether the line is curved between points
 			    bezierCurve : true,
 			    //Number - Tension of the bezier curve between points
-			    bezierCurveTension : 0.4,
+			    bezierCurveTension : 0.2,
 			    //Boolean - Whether to show a dot for each point
 			    pointDot : false,
 			    //Number - Radius of each point dot in pixels
@@ -99,7 +99,7 @@ var monitor = (function () {
 			    //Number - Pixel width of dataset stroke
 			    datasetStrokeWidth : 2,
 			    //Boolean - Whether to fill the dataset with a colour
-			    datasetFill : true,
+			    datasetFill : false,
 			    //Boolean - Whether to horizontally center the label and point dot inside the grid
 			    offsetGridLines : false
 			};
