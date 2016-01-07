@@ -2,12 +2,12 @@
 Monitors and visualize data received via USB (Arduino/Teensy)
 
 ##About
-This Node.js module script is freely inspired by the Arduino IDE and its "Serial Plotter".
+This Node.js module script is freely inspired by the Arduino IDE and its "Serial Plotter". See below?
 
 ##License
 This script is under the MIT License. See LICENSE file
 
-##Requirements
+##... more background ...
 The visualizer of the Arduino IDE is smomewhat rudimentary and slow - and also only to be handled withs some hack, if you want to use the "Serial Plotter" as visualization of data - without always scroling to the left when entering new data.
 
 So I wrote a _Node-Module_ called monitor.js, which looks for serial data coming in over the specified USB-port and format this data as plain text and provides it as a little web server with the possibility to visualize the data in individual charts in the browser. Like in this screenshot:
